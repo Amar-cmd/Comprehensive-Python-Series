@@ -1,13 +1,10 @@
 # ! Creating Variable
 age = 30
-
-# print(id(age))
-
 # 30 = age Never do this
 height = 5.9
 name = "Mogli"
 
-# name = mogli
+# name = mogli #  Never do this. Use single | double | triple quote
 
 # ! Printing a variable
 # print(name)
@@ -30,10 +27,7 @@ name = 12.5
 
 # ! Type of Data
 # integer, float, string
-
 # print(type(name))
-
-
 # age, aGE, AGE, Age -> 4 alag alag variables hain
 
 age = 4
@@ -44,21 +38,17 @@ aGE = 44
 #
 # print(age == aGE)
 
-
 sdata = "dac"
 # "", '' ``
 # print(sdata)
 
 # ! Multiple Data Assignment
-
 # a = 20
 # b = 30
-
 a, b = 20, "banana"
 # a = 20
 # b = "banana"
 # print(a, b)
-
 
 c = d = 30
 # c = 30
@@ -87,48 +77,13 @@ x = 10
 x = 20
 # print(x, x)
 
+# Naming Pattern
+    # camelCase, totalAmount -> Camel case
+    # PascalCase, TotalAmount -> Pascal Case
+    # snake_case, total_amount -> Snake Case
+    # SCREAMING_SNAKE_CASE
 
-# camelCase, totalAmount -> Camel case
-
-# PascalCase, TotalAmount -> Pascal Case
-
-# snake_case, total_amount -> Snake Case
-
-# SCREAMING_SNAKE_CASE
-
-PIE = 3.14
+PI = 3.14
 TOTAL_ANGLE_OF_TRIANGLE = 180
 
-print(PIE)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(PI)
