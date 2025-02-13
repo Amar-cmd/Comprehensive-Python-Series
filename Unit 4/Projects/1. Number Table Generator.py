@@ -1,20 +1,24 @@
 # ? Project 1 - NUMBER TABLE GENERATOR
 
+# Perform Addition
 def add_table(start, stop, operand):
     for num in range(start, stop+1):
         print(f"{num} + {operand} = {num + operand}")
     print()
 
+# Perform Subtraction
 def subtract_table(start, stop, operand):
     for num in range(start, stop+1):
         print(f"{num} - {operand} = {num - operand}")
     print()
 
+# Perform Multiplication
 def multiply_table(start, stop, operand):
     for num in range(start, stop+1):
         print(f"{num} x {operand} = {num * operand}")
     print()
 
+# Perform Division
 def divide_table(start, stop, operand):
     for num in range(start, stop+1):
         if operand == 0:
@@ -24,32 +28,38 @@ def divide_table(start, stop, operand):
             print(f"{num} / {operand} = {num / operand}")
     print()
 
+# Find Square
 def square_table(start, stop):
     for num in range(start, stop+1):
         print(f"{num}² = {num ** 2}")
     print()
 
+# Find Square Root
 def square_root_table(start, stop):
     for num in range(start, stop+1):
         print(f"√{num} = {num ** 0.5}")
     print()
 
+# Find Cube
 def cube_table(start, stop):
     for num in range(start, stop+1):
         print(f"{num}³ = {num ** 3}")
     print()
 
+# Find Cube Root
 def cube_root_table(start, stop):
     for num in range(start, stop+1):
         print(f"³√{num} = {num ** (1/3)}")
     print()
 
 
+# Accept Inputs
 print("Number Table Generator")
 start = int(input("Enter the start of the range: "))
 stop = int(input("Enter the end of the range: "))
 operand = 1
 
+# Show table and perform operations
 while True:
     print("MENU")
     print("1. Addition Table")
@@ -94,16 +104,3 @@ while True:
         break
     else:
         print("Invalid Choice. Please Try Again.")
-
-
-
-
-
-
-
-
-
-
-
-
-
