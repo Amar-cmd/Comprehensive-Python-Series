@@ -1,128 +1,111 @@
-# from collections import Counter
+#! Pathlib
+from pathlib import Path
+
+#? Creating a Path
+# p1 = Path("data/file.txt")
+# print(p1)
+
+# Windows-style absolute path (raw string)
+# p2 = Path(r"C:\Users\Amar\doc")
+# print(p2)
+
+# Linux/mac absolute path
+# p3 = Path("/home/amar/doc")
+# print(p3)
+
+#? Current working directory
+
+# cwd = Path.cwd()
+# print(cwd)
+
+#? Home directory
+# home = Path.home()
+# print(home)
+
+
+#? Joining paths
+
+# base = Path("project")
+# file_path = base / "data" / "input.txt"
+# print(file_path)
+
+
+#? Checking path properties
+
+# p = Path("project/data/input.txt")
 #
-# data = ["a", "b", "a", "c", "a", "b"]
-# c = Counter(data)
+# # Does it exist?
+# print(p.exists())
 #
-# # Basic
-# print(c)
-# print(c["a"])
-# print(c["z"])
+# # Is it a file or folder?
+# print(p.is_file())
+# print(p.is_dir())
 #
-# # 1. Most common
-# print(c.most_common(2))
+# # Absolute path
+# print(p.resolve()) # full absolute path (also normalizes)
+# print(p.absolute()) # absolute without resolving symlinks (behavior differs)
+
+#? Useful parts of a path
+
+# p = Path("project/data/input.txt")
 #
-# # 2. Update counts
-# c.update(["a", "d", "d"])
-# print(c)
+# print(p.name)
+# print(p.stem)
+# print(p.suffix)
+# print(p.suffixes)
+# print(p.parent)
+# print(p.parents)
+# print(list(p.parents))
+
+#? Changing file name / extension
+
+# p = Path("data/input.txt")
+# new_p = p.with_name("output.txt")
+# print(new_p)
 #
-# # 3. Convert to normal dict
-# print(dict(c))
+# # Change suffix (extension)
+# new_p = p.with_suffix(".csv")
+# print(new_p)
+
+#? Listing files and folders
+
+# # List immediate contents
+# folder = Path(r"D:\python\Unit 14\Code")
+# # folder.iterdir()
 #
-# # 4. Count characters
-# print(Counter("banana"))
-#
-# # 5. Count words
-# print(Counter("I love love python".split()))
-from collections import namedtuple
-
-#! 2. DEQUE
-
-# from collections import deque
-#
-# dq = deque([1, 2, 3, 4, 5])
-# print(dq)
-#
-# # add right
-# dq.append(6)
-# print(dq)
-#
-# # add left
-# dq.appendleft(0)
-# print(dq)
-#
-# # remove left
-# dq.popleft()
-# print(dq)
-#
-# # remove right
-# dq.pop()
-# print(dq)
-#
-# # Rotate
-# # [5, 1, 2, 3, 4]
-#
-# dq.rotate(2)
-# print(dq)
-#
-# # [3, 4, 5, 1, 2]
-# dq.rotate(-2)
-# dq.rotate(-2)
-#
-# print(dq)
-#
-# # Fixed size deque → gives only the latest N items
-# dqe = deque([1, 2, 3, 4, 5], maxlen=3)
-# print(dqe)
+# for item in folder.iterdir():
+#     # print(item)
+#     if item.is_file():
+#         print(item.name)
 
 
+#? Pattern searching
 
-#! 3. DefaultDict
+# folder = Path(r"D:\python\Unit 14\Code")
 
-# from collections import defaultdict
-#
-# d = defaultdict(int)
-# d1 = defaultdict(list)
-# d2 = defaultdict(set)
-#
-# print(d)
-#
-# d['a'] = 1
-# print(d)
-#
-# d['b'] = 2
-# print(d)
-#
-# d['a'] += 5
-# print(d)
+# for item in folder.glob("*.txt"):
+#     print(item)
+
+# for item in folder.rglob("*.txt"):
+#     print(item)
 
 
-#! 4. namedtuple
+#? Renaming & Deleting
 
-# from collections import namedtuple
-#
-# d = namedtuple("Person", ["name", "age"])
-# p = d("Amar", 24)
-# print(p)
-# print(p.age)
+# p = Path(r"D:\python\Unit 14\Code\1.txt")
+# p.rename("new.txt")
 
 
-#! 4. chainmap
+# p = Path(r"D:\python\Unit 14\Code\new.txt")
+# p.unlink(missing_ok=True)
 
-from collections import ChainMap
-
-defaults = {"theme": "light", "lang": "en"}
-user = {"theme": "dark"}
-
-chg = ChainMap(user, defaults)
-print(chg["theme"])
-print(chg["lang"])
-
-chg = ChainMap(defaults, user)
-print(chg["theme"])
-print(chg["lang"])
+# p = Path(r"D:\python\Unit 14\Code\Empty")
+# p.rmdir()
 
 
+#? Working with relative vs absolute paths safely
 
-
-
-
-
-
-
-
-
-
-
-
-
+# BASE_DIR = Path(__file__).resolve().parent
+# datafile = BASE_DIR / "data" / "input.txt"
+# print(datafile)
 
